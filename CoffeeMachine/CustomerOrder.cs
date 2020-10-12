@@ -3,15 +3,15 @@ namespace CoffeeMachine
 {
     public class CustomerOrder
     {
-        public string Item { get; private set; }
+        public Enum Item { get; private set; }
         public int NumOfSugar { get; private set; }
-        public string Message { get; private set; }
+        public Enum Temputure { get; private set; }
 
-        public CustomerOrder(string item, int numOfSugar, string message="")
+        public CustomerOrder(Enum item, int numOfSugar = 0, int temputure = (int)DrinkTemputure.Normal)
         {
             Item = item;
             NumOfSugar = numOfSugar;
-            Message = message;
+            Temputure = (DrinkTemputure)temputure;
         }
     }
 }

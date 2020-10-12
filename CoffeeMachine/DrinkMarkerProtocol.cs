@@ -9,34 +9,41 @@ namespace CoffeeMachine
         {
         }
 
-        private Dictionary<string, string> itemList = new Dictionary<string, string>()
-        {
-            {"Tea", "T" },
-            {"Chocolate", "H" },
-            {"Coffee", "C" }
+        private Dictionary<Enum, string> itemList = new Dictionary<Enum, string>()
+        {   
+            {Drink.Tea, "T" },
+            {Drink.Chocolate, "H" },
+            {Drink.Coffee, "C" },
+            {Drink.OrangeJuice, "O" }
         };
 
-        public string GetFirstElement(string item)
+        public string GetFirstElement(Enum item, Enum temputure)
         {
-            return itemList[item];
+            var output = itemList[item];
+            if (temputure.Equals(DrinkTemputure.Hot))
+            {
+                output += "h";
+            }
+            return output;
         }
 
-        public string GetSecondElement(int num)
+
+        public string GetSecondElement(int numOfSugar)
         {
-            if (num > 0)
+            if (numOfSugar > 0)
             {
-                return num.ToString();
+                return numOfSugar.ToString();
             }
-            return " ";
+            return "";
         }
 
-        public string GetThirdElement(int num)
+        public string GetThirdElement(int numOfSuger)
         {
-            if(num!= 0)
+            if(numOfSuger!= 0)
             {
-                return "";
+                return "0";
             }
-            return "0";
+            return "";
         }
     }
 }
